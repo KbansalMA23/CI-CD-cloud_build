@@ -5,7 +5,7 @@ RUN apt-get update \
         nodejs postgresql-client \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy application files and install the bundle
+
 WORKDIR /usr/src/app
 COPY Gemfile* ./
 RUN bundle install
