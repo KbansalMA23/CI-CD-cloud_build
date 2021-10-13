@@ -8,6 +8,7 @@ RUN apt-get update \
 # Copy application files and install the bundle
 WORKDIR /usr/src/app
 COPY Gemfile* ./
+RUN gem install bundle
 RUN bundle install
 COPY . .
 
