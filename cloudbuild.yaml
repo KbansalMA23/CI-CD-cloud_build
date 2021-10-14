@@ -11,8 +11,8 @@ steps:
   - gcloud
   - functions
   - deploy
-  - func
-  - --region=asia-south1
+  - function-1
+  - --region=asia-northeast3
   - --source=.
   - --trigger-http
-  - --runtime=Node.js 10
+  - --runtime=Node.js 14
