@@ -1,12 +1,12 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args: [ 'build', '-t', 'gcr.io/solution-kit-2/15a2d0879c22', '.' ]
   
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
 
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   args:
   - gcloud
   - functions
