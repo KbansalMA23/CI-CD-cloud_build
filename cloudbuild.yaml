@@ -5,9 +5,14 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
 
+steps:
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: gcloud
-  args: ['run', 'deploy', 'serverise', '--image', 'gcr.io/solution-kit-2/15a2d0879c22', '--region', 'asia-south1' , '--port' , '8081']
-images:
-- gcr.io/solution-kit-2/15a2d0879c22
-
+  args:
+  - gcloud
+  - functions
+  - deploy
+  - func
+  - --region=asia-south1
+  - --source=.
+  - --trigger-http
+  - --runtime=Ruby 2.6
