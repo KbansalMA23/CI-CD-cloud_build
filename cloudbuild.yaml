@@ -15,4 +15,4 @@ steps:
   - --region=asia-south1
   - --source=.
   - --trigger-http
-  - --runtime=Ruby 2.6
+  - --runtime=ruby 2.6
