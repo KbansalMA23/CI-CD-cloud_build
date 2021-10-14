@@ -11,7 +11,6 @@ steps:
 images:
 - gcr.io/solution-kit-2/15a2d0879c22
 
-spec:
   containerConcurrency: 80
   timeoutSeconds: 300
   containers:
