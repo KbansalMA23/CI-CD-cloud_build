@@ -1,8 +1,8 @@
 steps:
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+- name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/solution-kit-2/15a2d0879c22', '.' ]
   
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
 
 steps:
@@ -15,4 +15,4 @@ steps:
   - --region=asia-south1
   - --source=.
   - --trigger-http
-  - --runtime=ruby 2.6
+  - --runtime=Node.js 10
