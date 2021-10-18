@@ -6,7 +6,11 @@ steps:
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
 
 steps:
-- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
-  entrypoint: 'bash'
-  args: ['-c', 'gcloud config set app/cloud_build_timeout 1600 && gcloud app deploy']
-timeout: '1600s'
+...
+# deploy container image to GKE
+- name: "gcr.io/cloud-builders/gke-deploy"
+  args:
+  - run
+  - --filename=$HOME/.kube/config
+  - --location=	us-central1-c
+  - --cluster=cluster-1
