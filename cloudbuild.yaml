@@ -9,6 +9,5 @@ steps:
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
-  - --filename=usr/lib/google-cloud-sdk/bin/gcloud
   - --location=	us-central1-c
   - --cluster=cluster-1
