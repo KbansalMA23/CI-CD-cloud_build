@@ -5,8 +5,6 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
 
-steps:
-...
 # deploy container image to GKE
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
