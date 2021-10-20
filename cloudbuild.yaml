@@ -5,10 +5,13 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
 
-# deploy container image to GKE
+
 - name: "gcr.io/cloud-builders/gke-deploy"
   args:
   - run
+  
+   if [[ "message=str(input(' '))" == "deploy" ]]; then
+     name: 'commit'
   - --filename= config.yaml
   - --location=	us-central1-c
   - --cluster=cluster-1
