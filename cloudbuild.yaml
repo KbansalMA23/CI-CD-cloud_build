@@ -1,17 +1,12 @@
-steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/solution-kit-2/15a2d0879c22', '.' ]
-  
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
-
-
-- name: "gcr.io/cloud-builders/gke-deploy"
+  id: Build
   args:
-  - run
-  
-   if [[ "message=str(input(' '))" == "deploy" ]]; then
-     name: 'commit'
-  - --filename= config.yaml
-  - --location=	us-central1-c
-  - --cluster=cluster-1
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/15a2d0879c22:$SHORT_SHA'
+  - '.'
+  - name: 'gcr.io/cloud-builders/docker'
+  id: Push
+  args:
+  - 'push'
+  - 'gcr.io/$PROJECT_ID/15a2d0879c22:$SHORT_SHA'
