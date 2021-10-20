@@ -3,10 +3,10 @@
   args:
   - 'build'
   - '-t'
-  - 'gcr.io/$PROJECT_ID/15a2d0879c22:$SHORT_SHA'
+  - 'gcr.io/solution-kit-2/15a2d0879c22:$SHORT_SHA'
   - '.'
   - name: 'gcr.io/cloud-builders/docker'
   id: Push
   args:
   - 'push'
-  - 'gcr.io/$PROJECT_ID/15a2d0879c22:$SHORT_SHA'
+  - 'gcr.io/solution-kit-2/15a2d0879c22:$SHORT_SHA'
