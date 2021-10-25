@@ -4,14 +4,7 @@ steps:
   
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
-
-
-steps:
-- name: "gcr.io/cloud-builders/gcloud"
-  args: 
-  - deploy
   when:
         condition:
           all:
               deployInCommitMessage:  "'${{{CF_COMMIT_MESSAGE}}' == 'deploy'"
-             
