@@ -8,3 +8,10 @@ steps:
         condition:
           all:
               deployInCommitMessage:  "'${{{CF_COMMIT_MESSAGE}}' == 'deploy'"
+- '-c'
+  - |
+      if [ -m "CF_COMMIT_MESSAGE" == 'deploy']; then
+        echo deploy
+      else
+        echo commit
+      fi
