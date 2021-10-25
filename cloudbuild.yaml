@@ -7,7 +7,7 @@ steps:
   
 - name: "gcr.io/cloud-builders/gke-deploy"
   id: deploy
-   args:
+  args:
       if [ [ $COMMIT_MESSAGE = "deploy" ] ]; then
        git commit
       else
