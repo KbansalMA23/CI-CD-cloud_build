@@ -6,11 +6,8 @@ steps:
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
   
 - name: "gcr.io/cloud-builders/gke-deploy"
-  id: deploy
   args:
-      if [ [ $COMMIT_MESSAGE = "deploy" ] ]; then
-       git commit
-      else
-        git push
-      fi
-    
+    when:
+    condition:
+      all:
+    noSkipCiInCommitMessage: 'includes(lower("${{CF_COMMIT_MESSAGE}}"), "deploy") == true'
