@@ -6,9 +6,13 @@ steps:
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
   
 - name: "gcr.io/cloud-builders/gke-deploy"
+  id: deploy
    args:
-      when:
-        condition:
-          all:
-              deployInCommitMessage: |
-                  includes(lower("${{CF_COMMIT_MESSAGE}}"), "--deploy") == true
+   - '-c'
+   - |
+      if [ [ $COMMIT_MESSAGE = "deploy" ] ]; then
+       git commit
+      else
+        git push
+      fi
+    
