@@ -10,4 +10,4 @@ steps:
     when:
     condition:
       all:
-    noSkipCiInCommitMessage: 'includes(lower("${{CF_COMMIT_MESSAGE}}"), "deploy") == true'
+    deployInCommitMessage: 'includes(lower("${{CF_COMMIT_MESSAGE}}"), "deploy") == true'
