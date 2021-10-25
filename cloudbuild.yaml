@@ -4,6 +4,8 @@ steps:
   
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
+  
+- name: "gcr.io/cloud-builders/gke-deploy"
       when:
         condition:
           all:
