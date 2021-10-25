@@ -4,7 +4,7 @@ steps:
   
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/solution-kit-2/15a2d0879c22']
-- '-c'
+  - '-c'
   - |
       if [ -m "CF_COMMIT_MESSAGE" == 'deploy']; then
         echo deploy
