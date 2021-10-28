@@ -3,7 +3,14 @@ steps:
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/herukomigration/15a2d0879c22']
+  args: ['gcr.io/herukomigration/15a2d0879c22']
   
+  - '-c'
+  - |
+      if ["COMMIT_MESSAGE"= 'push']; then
+        Push
+      else
+        Commit
+      fi
   
 
