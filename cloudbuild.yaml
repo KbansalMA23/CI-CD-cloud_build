@@ -8,10 +8,8 @@ steps:
   args:
   - '-c'
   - |
-      if ["$_COMMIT_MESSAGE"= 'push']; then
-        Push
-      else
-        Commit
+      if [ ${_COMMIT_MESSAGE} = "push" ]; then
+        push;
       fi
   
 
