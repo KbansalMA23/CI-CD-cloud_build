@@ -5,6 +5,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: ['gcr.io/herukomigration/15a2d0879c22']
   
+  args:
   - '-c'
   - |
       if ["COMMIT_MESSAGE"= 'push']; then
