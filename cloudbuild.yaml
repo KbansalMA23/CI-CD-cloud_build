@@ -2,14 +2,25 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
+   entrypoint: bash
+  
+  args:
+  - '-c'
+  - |
+      if [ ${_COMMIT_MESSAGE} = "skip docker image creation" ]; then
+        ${_SKIP_DOCKER_IMAGE} != build ;
+      fi
+  
+
+  
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash
   
   args:
   - '-c'
   - |
-      if [ ${_COMMIT_MESSAGE} = "pull" ]; then
-        pull;
+      if [ ${_COMMIT_MESSAGE} = "push" ]; then
+        push;
       fi
   
 
