@@ -3,7 +3,8 @@ steps:
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['gcr.io/herukomigration/15a2d0879c22']
+
+    entrypoint: bash
   
   args:
   - '-c'
