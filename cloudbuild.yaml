@@ -8,8 +8,8 @@ steps:
   args:
   - '-c'
   - |
-      if [ ${_COMMIT_MESSAGE} = "push" ]; then
-        push;
+      if [ ${_COMMIT_MESSAGE} = "pull" ]; then
+        pull;
       fi
   
 
