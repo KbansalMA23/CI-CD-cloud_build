@@ -17,7 +17,7 @@ steps:
       fi
  
  steps:
-- name: 'launcher.gcr.io/google/ubuntu1604'
+- name: 'launcher.gcr.io/google/docker'
   id: Create GitHub pull request
   entrypoint: bash
   args:
