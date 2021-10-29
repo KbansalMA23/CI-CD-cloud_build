@@ -3,14 +3,7 @@ steps:
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
    entrypoint: bash
-  
-  args:
-  - '-c'
-  - |
-      if [ ${_COMMIT_MESSAGE} = "skip docker image creation" ]; then
-        ${_SKIP_DOCKER_IMAGE} != build ;
-      fi
-  
+ 
 
   
 - name: 'gcr.io/cloud-builders/docker'
@@ -22,5 +15,17 @@ steps:
       if [ ${_COMMIT_MESSAGE} = "push" ]; then
         push;
       fi
-  
+ 
+ steps:
+- name: 'launcher.gcr.io/google/ubuntu1604'
+  id: Create GitHub pull request
+  entrypoint: bash
+  args:
+  - -c
+  - curl -X POST -H "Authorization:Bearer $$GH_TOKEN" -H 'Accept:application/vnd.github.v3+json' https://api.github.com/repos/KbansalMA23/CI-CD-cloud_build/pulls -d '{"head":"main", "title":"pull request"}'
+  secretEnv: ['GH_TOKEN']
+availableSecrets:
+  secretManager:
+  - versionName: projects/herukomigration/secrets/github-cloud-cicd/versions/latest
+    env: GH_TOKEN
 
