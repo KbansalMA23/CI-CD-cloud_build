@@ -2,18 +2,8 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
-steps: 
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: bash
   
-  args:
-  - '-c'
-  - |
-      if [ ${_COMMIT_MESSAGE} = "push" ]; then
-        push;
-      fi
- 
- steps:
+steps:
 - name: 'launcher.gcr.io/google/ubuntu1604'
   id: Create GitHub pull request
   entrypoint: bash
@@ -25,4 +15,17 @@ availableSecrets:
   secretManager:
   - versionName: projects/herukomigration/secrets/github-cloud-cicd/versions/latest
     env: GH_TOKEN
+
+  
+steps: 
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: bash
+  
+  args:
+  - '-c'
+  - |
+      if [ ${_COMMIT_MESSAGE} = "push" ]; then
+        push;
+      fi
+ 
 
