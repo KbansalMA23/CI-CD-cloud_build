@@ -19,7 +19,7 @@ steps:
   entrypoint: bash
   args:
   - -c
-  - curl -X POST -H "Authorization:Bearer $$GH_TOKEN" -H 'Accept:application/vnd.github.v3+json' https://api.github.com/repos/KbansalMA23/CI-CD-cloud_build/pulls -d '{"head":"main", "title":"pull request"}'
+  - curl -X POST -H "Authorization:Bearer $$GH_TOKEN" -H 'Accept:application/vnd.github.v3+json' https://api.github.com/repos/KbansalMA23/CI-CD-cloud_build/pulls -d '{"head":"main","base":"prod", "title":"pull request"}'
   secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
