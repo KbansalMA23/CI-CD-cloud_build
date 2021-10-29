@@ -2,10 +2,7 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
- 
- 
-
-  
+steps: 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash
   
@@ -17,7 +14,7 @@ steps:
       fi
  
  steps:
-- name: 'launcher.gcr.io/google/docker'
+- name: 'launcher.gcr.io/google/ubuntu1604'
   id: Create GitHub pull request
   entrypoint: bash
   args:
