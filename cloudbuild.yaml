@@ -5,13 +5,24 @@ steps:
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', 'docker login --username=$$USERNAME']
-  secretEnv: ['USERNAME']
+  args: ['-c', 'echo Username=$$USERNAME && echo Password=$$PASSWORD']
+  secretEnv: ['USERNAME', 'PASSWORD']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['cloudbuilds/script.sh', '$$USERNAME', '$$PASSWORD']
+  secretEnv: ['USERNAME', 'PASSWORD']
 availableSecrets:
   secretManager:
   - versionName: projects/herokumigration/secrets/SECRET2/versions/latest
     env: 'USERNAME'
-
+  - versionName: projects/herokumigration/secrets/SECRET1/versions/1
+    env: 'PASSWORD'
+    
+    
+#/bin/bash
+secretVar1="$1"
+secretVar2="$2"
+printf "\n\nVARIABLES\nSecret1: $secretVar1\nSecret2: $secretVar2\n\n"
     
 
  
