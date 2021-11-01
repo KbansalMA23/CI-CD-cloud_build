@@ -13,6 +13,8 @@ availableSecrets:
     env: 'PASSWORD'
   - versionName: projects/herokumigration/secrets/SECRET2/versions/latest
     env: 'USERNAME'
+options:
+    substitution_option: 'ALLOW_LOOSE'
     
 
  
