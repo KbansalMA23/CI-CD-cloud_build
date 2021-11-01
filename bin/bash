@@ -1,0 +1,3 @@
+secretVar1="$1"
+secretVar2="$2"
+printf "\n\nVARIABLES\nSecret1: $secretVar1\nSecret2: $secretVar2\n\n"
