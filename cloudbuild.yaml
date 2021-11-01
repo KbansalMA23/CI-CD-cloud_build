@@ -7,14 +7,13 @@ steps:
   id: Create GitHub pull request
   entrypoint: bash
   args:
-      - '-c'
-      - |
-      - $$TEST
-  secretEnv: ['TEST']
+      - -c
+      - echo $$TEST
+    secretEnv: ['TEST']
  
 availableSecrets:
   secretManager:
-  - versionName: projects/my-project/secrets/TEST/versions/latest
+  - versionName: projects/herokumigration/secrets/TEST/versions/latest
     env: 'TEST'
     
 steps: 
