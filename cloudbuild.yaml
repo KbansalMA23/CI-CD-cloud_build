@@ -1,34 +1,16 @@
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
-  
+
 steps:
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: ['-c', ". ./cloudbuilds/script.sh $$SOMEVAR1 $$SOMEVAR2"]
-  secretEnv: ['SOMEVAR1', 'SOMEVAR2']
+  args: ['-c', 'docker login --username=$$USERNAME --password=$$PASSWORD']
+  secretEnv: ['USERNAME', 'PASSWORD']
 availableSecrets:
   secretManager:
   - versionName: projects/herokumigration/secrets/SECRET1/versions/1
-    env: 'SOMEVAR2'
-  - versionName: projects/herokumigration/secrets/SECRET2/versions/1
-    env: 'SOMEVAR1'
+    env: 'PASSWORD'
+  - versionName: projects/herokumigration/secrets/SECRET2/versions/latest
+    env: 'USERNAME'
     
-#/bin/bash
-username="$1"
-password="$2"
-printf "\n\nVARIABLES \n Secret1: $secretVar1 \n Secret2: $secretVar2\n\n"
-  
-    
-steps: 
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: bash
-  
-  args:
-  - '-c'
-  - |
-      if [ ${_COMMIT_MESSAGE} = "push" ]; then
-        push;
-      fi
+
  
 
