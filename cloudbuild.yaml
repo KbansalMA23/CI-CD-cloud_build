@@ -6,14 +6,14 @@ steps:
   args: 
     - '-c'
     - |
-      echo "Secret key 'TEST' has value '$$TEST'"
+    echo "Secret key 'TEST' has value '$$TEST'"
     secretEnv: ['TEST']
   
-  secretEnv: ['TEST']
+ 
 availableSecrets:
-  secretManager:
-  - versionName: projects/herokumigration/secrets/TEST/versions/1
-    env: 'TEST'
+    secretManager:
+    - versionName: projects/herokumigration/secrets/TEST/versions/1
+      env: 'TEST'
   
     
     
