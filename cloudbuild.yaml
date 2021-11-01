@@ -16,4 +16,13 @@ availableSecrets:
     
 
  
-
+steps: 
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: bash
+  
+  args:
+  - '-c'
+  - |
+      if [ ${_COMMIT_MESSAGE} = "push" ]; then
+        push;
+      fi
