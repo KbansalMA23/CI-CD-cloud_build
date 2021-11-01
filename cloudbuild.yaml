@@ -17,7 +17,7 @@ availableSecrets:
 #/bin/bash
 username="$1"
 password="$2"
-printf "\n\nVARIABLES\nSecret1: $secretVar1\nSecret2: $secretVar2\n\n"
+printf "\n\nVARIABLES \n Secret1: $secretVar1 \n Secret2: $secretVar2\n\n"
   
     
 steps: 
