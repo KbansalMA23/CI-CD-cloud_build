@@ -13,6 +13,11 @@ availableSecrets:
     env: 'SOMEVAR2'
   - versionName: projects/herokumigration/secrets/SECRET2/versions/1
     env: 'SOMEVAR1'
+    
+#/bin/bash
+username="$1"
+password="$2"
+printf "\n\nVARIABLES\nSecret1: $secretVar1\nSecret2: $secretVar2\n\n"
   
     
 steps: 
