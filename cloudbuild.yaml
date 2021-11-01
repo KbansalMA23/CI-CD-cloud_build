@@ -9,7 +9,7 @@ steps:
   args:
       - -c
       - echo $$TEST
-    secretEnv: ['TEST']
+  secretEnv: ['TEST']
  
 availableSecrets:
   secretManager:
