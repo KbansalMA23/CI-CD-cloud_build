@@ -9,9 +9,9 @@ steps:
   secretEnv: ['USERNAME', 'PASSWORD']
 availableSecrets:
   secretManager:
-  - versionName: projects/$PROJECT_ID/secrets/SECRET1/versions/1
+  - versionName: projects/herokumigration/secrets/SECRET1/versions/1
     env: 'PASSWORD'
-  - versionName: projects/$PROJECT_ID/secrets/SECRET2/versions/latest
+  - versionName: projects/herokumigration/secrets/SECRET2/versions/latest
     env: 'USERNAME'
   
     
