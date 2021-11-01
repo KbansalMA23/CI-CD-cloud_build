@@ -2,22 +2,23 @@ steps:
 - name: 'gcr.io/cloud-builders/docker'
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
-steps:
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: 'bash'
-  args: ['-c', ". ./cloudbuilds/script.sh $$SOMEVAR1 $$SOMEVAR2"]
-  secretEnv: ['SOMEVAR1', 'SOMEVAR2']
+
+  args: 
+    - '-c'
+    - |
+      echo "Secret key 'TEST' has value '$$TEST'"
+    secretEnv: ['TEST']
+  
+  secretEnv: ['TEST']
 availableSecrets:
   secretManager:
-  - versionName: projects/herokumigration/secrets/SECRET1/versions/1
-    env: 'SECRET1'
-  - versionName: projects/herokumigration/secrets/SECRET2/versions/latest
-    env: 'SECRET2'
+  - versionName: projects/herokumigration/secrets/TEST/versions/1
+    env: 'TEST'
+  
     
     
 
  
-steps: 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash
   
@@ -27,3 +28,5 @@ steps:
       if [ ${_COMMIT_MESSAGE} = "push" ]; then
         push;
       fi
+      
+   
