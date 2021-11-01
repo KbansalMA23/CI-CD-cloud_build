@@ -10,8 +10,13 @@ steps:
       - '-c'
       - |
       - $$TEST
- secretEnv: ['TEST']
-
+  secretEnv: ['TEST']
+ 
+availableSecrets:
+  secretManager:
+  - versionName: projects/my-project/secrets/TEST/versions/latest
+    env: 'TEST'
+    
 steps: 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash
