@@ -6,11 +6,11 @@ steps:
 - name: 'launcher.gcr.io/google/ubuntu1604'
   id: Create GitHub pull request
   entrypoint: bash
-   args:
+  args:
       - '-c'
       - |
       - $$TEST
-    secretEnv: ['TEST']
+ secretEnv: ['TEST']
 
 steps: 
 - name: 'gcr.io/cloud-builders/docker'
