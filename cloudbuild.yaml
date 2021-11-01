@@ -3,18 +3,15 @@ steps:
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
 steps:
-- name: 'launcher.gcr.io/google/ubuntu1604'
-  id: Create GitHub pull request
-  entrypoint: bash
-  args:
-      - -c
-      - echo $$TEST
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', ". ./cloudbuilds/script.sh $$TEST"]
   secretEnv: ['TEST']
- 
 availableSecrets:
   secretManager:
-  - versionName: projects/herokumigration/secrets/TEST/versions/latest
+  - versionName: projects/herokumigration/secrets/TEST/versions/1
     env: 'TEST'
+  
     
 steps: 
 - name: 'gcr.io/cloud-builders/docker'
