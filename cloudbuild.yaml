@@ -12,7 +12,7 @@ steps:
   secretEnv: ['GH_TOKEN']
 availableSecrets:
   secretManager:
-  - versionName: projects/herokumigration/secrets/github-cloud-cicd/versions/latest
+  - versionName: projects/herokumigration/secrets/github-cloud-cicd/versions/1
     env: GH_TOKEN
 steps: 
 - name: 'gcr.io/cloud-builders/docker'
