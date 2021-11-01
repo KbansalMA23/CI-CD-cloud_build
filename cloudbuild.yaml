@@ -3,16 +3,16 @@ steps:
   args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
   
 steps:
-- name: 'my-step'
-  args:
-  - '--secret=$$SECRET1'
-  secretEnv:
-  - 'SECRET1'
-
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['-c', ". ./cloudbuilds/script.sh $$SOMEVAR1 $$SOMEVAR2"]
+  secretEnv: ['SOMEVAR1', 'SOMEVAR2']
 availableSecrets:
   secretManager:
-  - env: 'SECRET1'
-    versionName: 'projects/herokumigration/secrets/secret1/versions/latest'
+  - versionName: projects/herokumigration/secrets/SECRET1/versions/1
+    env: 'SECRET1'
+  - versionName: projects/herokumigration/secrets/SECRET2/versions/latest
+    env: 'SECRET2'
     
     
 
