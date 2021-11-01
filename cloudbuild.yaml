@@ -6,14 +6,12 @@ steps:
 - name: 'launcher.gcr.io/google/ubuntu1604'
   id: Create GitHub pull request
   entrypoint: bash
-  args:
-  - -c
-  - curl -X POST -H "Authorization:Bearer $$GH_TOKEN" -H 'Accept:application/vnd.github.v3+json' https://api.github.com/repos/KbansalMA23/CI-CD-cloud_build/pulls -d '{"head":"main","base":"prod", "title":"PR"}'
-  secretEnv: ['GH_TOKEN']
-availableSecrets:
-  secretManager:
-  - versionName: projects/herokumigration/secrets/github-cloud-cicd/versions/1
-    env: GH_TOKEN
+   args:
+      - '-c'
+      - |
+      - $$TEST
+    secretEnv: ['TEST']
+
 steps: 
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: bash
