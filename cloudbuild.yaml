@@ -1,32 +1,18 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'gcr.io/herukomigration/15a2d0879c22', '.' ]
-  
-
+  entrypoint: 'bash'
   args: 
-    - '-c'
-    - |
-    echo "Secret key 'TEST' has value '$$TEST'"
-    secretEnv: ['TEST']
-  
- 
-availableSecrets:
-    secretManager:
-    - versionName: projects/herokumigration/secrets/TEST/versions/1
-      env: 'TEST'
-  
-    
-    
-
- 
-- name: 'gcr.io/cloud-builders/docker'
-  entrypoint: bash
-  
-  args:
   - '-c'
   - |
-      if [ ${_COMMIT_MESSAGE} = "push" ]; then
-        push;
-      fi
+    echo "Secret key 'TEST' has value '$$TEST'"
+  secretEnv: ['TEST']
+  
+availableSecrets:
+  secretManager:
+  - versionName: projects/herokumigration/secrets/TEST/versions/1
+    env: 'TEST'
+  
+    
+
       
    
