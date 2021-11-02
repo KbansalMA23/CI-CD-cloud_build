@@ -7,20 +7,7 @@ steps:
 
 
 
-steps:
-- name: 'launcher.gcr.io/google/ubuntu1604'
-  entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    echo "Secret key 'TEST' has value '$$TEST'"
-  secretEnv: ['TEST']
-  
-availableSecrets:
-  secretManager:
-  - versionName: projects/herokumigration/secrets/TEST/versions/1
-    env: 'TEST'
-  
+
     
 
       
