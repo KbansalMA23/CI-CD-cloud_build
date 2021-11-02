@@ -1,5 +1,5 @@
 steps:
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'launcher.gcr.io/google/ubuntu1604'
   entrypoint: 'bash'
   args: 
   - '-c'
