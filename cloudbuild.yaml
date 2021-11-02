@@ -1,19 +1,17 @@
-
 steps:
-- name: 'launcher.gcr.io/google/ubuntu1604'
+- name: 'gcr.io/cloud-builders/docker'
   entrypoint: 'bash'
-  args: 
-  - '-c'
-  - |
-    echo "Secret key 'SECRET1' has value '$$SOMVAR1'"
-  secretEnv: ['SOMVAR1']
-  
+  args: ['-c', 'echo Password=$$PASSWORD']
+  secretEnv: ['USERNAME', 'PASSWORD']
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: 'bash'
+  args: ['cloudbuilds/script.sh','$$PASSWORD']
+  secretEnv: ['USERNAME', 'PASSWORD']
 availableSecrets:
   secretManager:
-  - versionName: projects/herokumigration/secrets/SECRET1/versions/1
-    env: 'SOMVAR1'
-  
-    
+  - versionName: projects/$PROJECT_ID/secrets/SECRET2/versions/1
+    env: 'PASSWORD'
+ 
 
       
    
