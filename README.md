@@ -62,6 +62,6 @@ You can also use Docker to release to Heroku:
 
 ## Documentation
 
-For more information about using Ruby on Heroku, see these Dev Center articles:
+For more information about using Ruby on Heroku, see these Dev Center articles::
 
 - [Ruby on Heroku](https://devcenter.heroku.com/categories/ruby)
